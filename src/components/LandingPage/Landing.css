@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif; 
+  font-size: 20px;
+  color: #444;
+  background-color: #D5D6D8;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 0;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.buttons {
+  margin-top: 80px;
+}
+
+button {
+  display: block;
+  margin: 20px auto 30px;
+  font-size: 20px;
+  width: 70%;
+  max-width: 250px;
+  font-size: 20px;
+}
+
+p {
+  
+  max-width: 500px;
+  text-align: center;
+  margin: 0 auto 50px;
+  padding: 0 20px 0;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  margin: 20px auto 20px;
+  width: 100%;
+}
+
