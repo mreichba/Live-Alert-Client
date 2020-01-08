@@ -72,7 +72,7 @@ export default class Signup extends Component {
             <input type="text" placeholder="Repeat Safeword" name="safewordRepeat" required />
             <hr />
 
-            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+            <p>By creating an account you agree to our <Link to='/terms'>Terms & Privacy</Link>.</p>
             <div className="buttons">
               <button type="submit" className="register button">Register</button>
               <Link to='/'>

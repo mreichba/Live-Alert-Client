@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
 }
-
 nav {
   padding: 1% 0;
   background-color: rgb(0, 0, 0);
@@ -25,12 +24,15 @@ nav {
   font-size: 35px;
 }
 .links {
-  display: none;
+  display: flex;
   flex-direction: column;
   margin: 5px;
   overflow: hidden;
   font-size: 20px;
   padding: 0px;
+}
+.null{
+  display: none;
 }
 li {
   display: inline;
@@ -41,9 +43,6 @@ li a {
   padding: 8px;
   color: white;
   text-decoration: none;
-}
-.null {
-  display: flex;
 }
 
 h1{
@@ -77,34 +76,6 @@ body {
   min-width: 195px;
   height: 60px;
   font-size: 40px;
-}
-
-.redAlert {
-  color: red;
-  font-weight: bold;
-}
-
-.greenAlert{
-  color: green;
-  font-weight: bold;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.myAlerts, .userAlerts {
-  border: 1px solid black;
-  max-width: 550px;
-  margin: 0 auto 0;
-}
-
-p {
-  margin: 25px;
-}
-
-.alertsHome {
-  margin-bottom: 40px;
 }
 
 /*tablet screen*/
