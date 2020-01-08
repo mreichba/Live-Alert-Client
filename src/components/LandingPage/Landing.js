@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from '../../Images/signal-tower-large.png'
 import './Landing.css'
 
 export default class Landing extends React.Component {
   render() {
     return (
       <div>
-        <div className="logo">Logo</div>
+        <img id="Landing-Logo" src={Logo} alt="Live Alert Logo" className="logo" />
 
         <div className="buttons">
           <Link to='/auth/sign-up'>
@@ -22,7 +23,7 @@ export default class Landing extends React.Component {
         </div>
 
         <h2>Mission Statement:</h2>
-        <p>
+        <p className='mission'>
           The world is filled with so much good and our lives may hold many adventures. At the same time, these adventures
           can take a turn for the worse and expose us to dangerous situations in which we may fear for our lives. In these
           moments, you may not have time to make a phone call or relate a situation to pertinent individuals and thats where

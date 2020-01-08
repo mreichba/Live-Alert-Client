@@ -1,8 +1,14 @@
 import React from 'react';
-
+import TokenServices from '../../services/token-services';
 import AuthHelper from '../../services/auth-api-service';
+import Logo from '../../Images/signal-tower-large.png'
 
 export default class DeleteAccount extends React.Component {
+
+  onCancel = () => {
+    const { history } = this.props;
+    history.push('/home')
+  }
 
   onDeleteSuccess = user => {
     const { history } = this.props;
@@ -12,31 +18,32 @@ export default class DeleteAccount extends React.Component {
   deleteAccount = (event) => {
     event.preventDefault();
     const { email, password } = event.target
-    alert('Your account is now being deleted!');
     AuthHelper.deleteAccount()
       .then(() => {
         email.value = '';
         password.value = '';
+        TokenServices.clearAuthToken();
         this.onDeleteSuccess();
+        alert('Your account has successfully been deleted!');
       })
   }
 
   render() {
     return (
       <div>
-        <div className="logo">Logo</div>
+        <img id="Landing-Logo" src={Logo} alt="Live Alert Logo" className="logo" />
 
         <h2>Account Deletion</h2>
 
         <form onSubmit={this.deleteAccount}>
-          <label for="email"><b>Email</b></label>
+          <label htmlFor="email"><b>Email</b></label>
           <input type="text" placeholder="Enter Email" name="email" required />
 
-          <label for="password"><b>Password</b></label>
+          <label htmlFor="password"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="password" required />
 
-          <button type="submit" className="login button">Delete My Account</button>
-          <button type="click" className="cancel button">Cancel</button>
+          <button type="submit" className="delete button">Delete My Account</button>
+          <button type="click" className="cancel button" onClick={this.onCancel}>Cancel</button>
         </form>
       </div>
 

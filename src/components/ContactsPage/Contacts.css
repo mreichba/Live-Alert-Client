@@ -1,0 +1,10 @@
+
+li.contact {
+  display: block;
+  text-align: center;
+}
+
+.error {
+  font-weight: bold;
+  color: red;
+}
