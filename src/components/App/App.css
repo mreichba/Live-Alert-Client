@@ -5,3 +5,25 @@
 header {
   margin-top: 70px;
 }
+
+.logo {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 0;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif; 
+  font-size: 20px;
+  color: black;
+
+  text-align: center;
+  line-height: 1.5;
+}
+
+div.App, html {
+  background-color:rgb(247, 243, 199);
+  color: black;
+}

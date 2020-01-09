@@ -28,11 +28,9 @@ export default class Landing extends React.Component {
           can take a turn for the worse and expose us to dangerous situations in which we may fear for our lives. In these
           moments, you may not have time to make a phone call or relate a situation to pertinent individuals and thats where
           this discrete App comes in handy. If you are feeling threatened or scared for your life, you just have to press
-          one button
-          and your selected contacts are notified of an 'incident' and are given your GPS location, name, email, phone
-          number, and a
-          safeword. If contacted and no one answers or does answer but does not repeat the safeword, then
-          contacts should relay that information to authorities and they will be on their way to your location.
+          one button and your selected contacts are notified of an 'incident' and are given your GPS location, name, email,
+          and a safeword. If contacted and no one answers or does answer but does not repeat the safeword, then
+          contacts should relay the situation to authorities and they will be on their way to your location.
         </p>
       </div >
     )

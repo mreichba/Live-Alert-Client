@@ -1,71 +1,4 @@
-* {
-  box-sizing: border-box;
-}
 
-nav {
-  padding: 1% 0;
-  background-color: rgb(0, 0, 0);
-}
-.navBar {
-  display: inline-block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  padding: 5px;
-}
-.burgerIcon {
-  color: white;
-  padding: 0px;
-  margin: 0px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  font-size: 35px;
-}
-.links {
-  display: none;
-  flex-direction: column;
-  margin: 5px;
-  overflow: hidden;
-  font-size: 20px;
-  padding: 0px;
-}
-li {
-  display: inline;
-  text-align: right;
-}
-
-li a {
-  padding: 8px;
-  color: white;
-  text-decoration: none;
-}
-.null {
-  display: flex;
-}
-
-h1{
-  margin-top: 50px;
-}
-
-.logo {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 0;
-  border: 1px solid black;
-  border-radius: 50%;
-}
-
-body {
-  font-family: "Open Sans", sans-serif; 
-  font-size: 20px;
-  color: #444;
-  background-color: #D5D6D8;
-  text-align: center;
-  line-height: 1.5;
-}
 
 .alertButton {
   background-color: red;
@@ -77,6 +10,7 @@ body {
   min-width: 195px;
   height: 60px;
   font-size: 40px;
+  border-radius: 8px;
 }
 
 .redAlert {
@@ -107,26 +41,4 @@ p {
   margin-bottom: 40px;
 }
 
-/*tablet screen*/
-@media screen and (min-width: 655px) {
-  .links {
-    display: inline;
-    justify-content: right;
-    margin: 5px;
-    padding: 0;
-    align-self: center;
-    
-  }
-
-  .burgerIcon {
-    display: none;
-  }
-    
-  .navBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;  
-  }
-
-}
 

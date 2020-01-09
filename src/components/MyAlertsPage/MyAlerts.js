@@ -30,7 +30,7 @@ export default class MyAlerts extends React.Component {
 
   onGoBack = () => {
     const { history } = this.props;
-    history.push('/home')
+    history.push('/users/home')
   }
 
   markSafe = (id) => {
@@ -47,7 +47,7 @@ export default class MyAlerts extends React.Component {
         <span className='bold'>  Longitude: </span>{myAlert.longitude}
         <span className='bold'>  Latitude: </span>{myAlert.latitude}
         <span className='bold'>  Emergency: </span>{myAlert.alert_active ? <span className='redAlert'>"Emergency"</span> : <span className='greenAlert'>"Safe"</span>}
-        <button className='isSafe' onClick={() => this.markSafe(myAlert.id)} >Safe</button>
+        <button className='isSafe' onClick={() => this.markSafe(myAlert.id)} >Mark Safe</button>
       </p>
     ))
     console.log(myAlerts)

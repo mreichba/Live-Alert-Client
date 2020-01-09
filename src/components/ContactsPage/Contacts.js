@@ -29,7 +29,7 @@ export default class Contacts extends React.Component {
 
   onCancel = () => {
     const { history } = this.props;
-    history.push('/home')
+    history.push('/users/home')
   }
 
   addContact = (event) => {
