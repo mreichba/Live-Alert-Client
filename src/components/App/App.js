@@ -41,10 +41,7 @@ class App extends React.Component {
     return (
       <Context.Provider value={value}>
         <div className='App'>
-
-          <nav className="navBar">
-            <Nav />
-          </nav>
+          <Nav />
 
           <header>
             <h1>Live Alert</h1>
@@ -69,7 +66,7 @@ class App extends React.Component {
               />
               <PrivateRoute
                 exact
-                path='/home'
+                path='/users/home'
                 component={Home}
               />
               <PrivateRoute

@@ -58,6 +58,7 @@ export default class Home extends React.Component {
         <span className='bold'>  Alert Time: </span>{moment(alert.alert_time).format("dddd, MMMM Do YYYY, h:mm:ss a")}
         <span className='bold'>  Longitude: </span>{alert.longitude}
         <span className='bold'>  Latitude: </span>{alert.latitude}
+        <span className='bold'>  Safeword: </span>{alert.safeword}
         <span className='bold'>  Emergency: </span>{alert.alert_active ? <span className='redAlert'>"Emergency"</span> : <span className='greenAlert'>"Safe"</span>}
       </p>
     ))

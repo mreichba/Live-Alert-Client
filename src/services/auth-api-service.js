@@ -24,12 +24,13 @@ const AuthHelper = {
       return !res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
     });
   },
-  deleteAccount() {
+  deleteAccount(email, password) {
     return fetch(`${config.API_ENDPOINT}/users`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${TokenServices.getAuthToken()}`
-      }
+      },
+      body: JSON.stringify({ email: email.value, password: password.value })
     });
   },
   getMyAlerts() {
@@ -52,6 +53,15 @@ const AuthHelper = {
   },
   getMyContacts() {
     return fetch(`${config.API_ENDPOINT}/contacts`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${TokenServices.getAuthToken()}`
+      }
+    });
+  },
+  getMyNickname() {
+    return fetch(`${config.API_ENDPOINT}/users/home`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',

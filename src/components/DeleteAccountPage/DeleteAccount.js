@@ -7,7 +7,7 @@ export default class DeleteAccount extends React.Component {
 
   onCancel = () => {
     const { history } = this.props;
-    history.push('/home')
+    history.push('/users/home')
   }
 
   onDeleteSuccess = user => {
@@ -18,7 +18,7 @@ export default class DeleteAccount extends React.Component {
   deleteAccount = (event) => {
     event.preventDefault();
     const { email, password } = event.target
-    AuthHelper.deleteAccount()
+    AuthHelper.deleteAccount(email, password)
       .then(() => {
         email.value = '';
         password.value = '';

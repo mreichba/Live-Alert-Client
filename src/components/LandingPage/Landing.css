@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+
 
 body {
   font-family: "Open Sans", sans-serif; 
@@ -11,16 +9,9 @@ body {
   line-height: 1.5;
 }
 
-.logo {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 0;
-  border: 1px solid black;
-  border-radius: 50%;
-}
-
 .buttons {
   margin-top: 80px;
+  
 }
 
 button {
@@ -30,6 +21,9 @@ button {
   width: 70%;
   max-width: 250px;
   font-size: 20px;
+  background-color: rgb(62, 82, 170);
+  color: white;
+  border-radius: 8px;
 }
 
 .mission {
@@ -40,10 +34,10 @@ button {
   padding: 0 20px 0;
 }
 
-footer {
+/* footer {
   position: relative;
   bottom: 0;
   margin: 20px auto 20px;
   width: 100%;
-}
+} */
 

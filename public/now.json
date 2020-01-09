@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "alias": "live-alert",
+  "name": "live-alert-app",
+  "routes": [
+    {
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": ".*",
+      "dest": "/index.html"
+    }
+  ]
+}
