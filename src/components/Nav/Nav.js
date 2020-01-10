@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TokenServices from '../../services/token-services';
 import Context from '../Context/Context';
-import AuthHelper from '../../services/auth-api-service';
+import Nickname from '../Nickname/Nickname';
 import './Nav.css'
 
 
@@ -17,16 +17,8 @@ export default class Nav extends React.Component {
   }
   static contextType = Context;
 
-  componentDidMount() {
-    if (TokenServices.hasAuthToken()) {
-      AuthHelper.getMyNickname()
-        .then(res => res.json())
-        .then(res => this.setState({ nick_name: res.nick_name }))
-    }
-  }
 
   burgerClick = () => {
-    console.log('you clicked me!')
     let links = document.getElementById('links');
     if (links.className === 'links') {
       links.className += ' null';
@@ -48,45 +40,42 @@ export default class Nav extends React.Component {
 
   renderHomeLinks() {
     return (
-      <nav className='navContents'>
-        <div className='userNickname'>
-          <Link to='/users/home' className='user'>
-            <span className='nickname'>{this.state.nick_name}'s profile</span>
-          </Link>
-        </div>
+      <div className='navContents'>
+        {TokenServices.hasAuthToken() && <Nickname />}
         <div role="navigation" className="burgerIcon" id="burger" onClick={this.burgerClick}> &#9776; </div>
         <ul aria-live="polite" className="links" id="links" onClick={this.burgerClick}>
           <li><Link onClick={this.signOut} to='/auth/login' >Log Out</Link></li>
-          {/* <li><Link to='/Info' >Information</Link></li> */}
           <li><Link to='/delete-account'>Delete Account</Link></li>
           <li><Link to='/contacts'>Contacts</Link></li>
           <li><Link to='/alerts'>My Alerts</Link></li>
         </ul>
-      </nav>
+      </div>
     )
   }
 
   renderLoginLinks() {
     return (
-      <div>
-        <ul aria-live="polite" className="links" id="links" onClick={this.burgerClick}></ul>
-        <li>
-          <Link
-            to='/auth/sign-up'>
-            Register
-          </Link>
-        </li>
-        {' '}
-        <li>
-          <Link
-            to='/auth/login'>
-            Login
-          </Link>
-        </li>
+      <div className='navContents'>
+        <ul aria-live="polite" className="loginLinks" id="loginLinks">
+          <li className=''>
+            <Link
+              to='/auth/sign-up'>
+              Register
+              </Link>
+          </li>
+          <li >
+            <Link
+              to='/auth/login'>
+              Login
+              </Link>
+          </li>
+        </ul>
       </div>
     )
   }
   render() {
+
+
     return (
       <div>
         <nav className="navBar">
