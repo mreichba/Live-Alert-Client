@@ -3,7 +3,7 @@ Link: https://live-alert.now.sh/
 
 ## Summary
 This is a safety app with the ability to create and delete a user account, login, add contacts (using contact email) that also use the app, and the ability to send out alerts for worrisome or life-threatening situations. The alert will be able to be seen by your added contacts and contains your screen name, the date and time the alert was sent, gps coordinates (longitude & latitude), safeword, and whether or not you are in a current emergency situation or if you have marked yourself as safe. If someone sends out an alert, their contacts should reach out to that user to verify they are ok, if the user doesnt answer or answers but doesnt use the safeword then the contact knows the user is still in a dangerous situation and should contact emergency services to your gps location.
-![landingPage](src/images/Landing.png)
+![landingPage](src\Images\Landing.PNG)
 ## Technology Used
 React 
 
