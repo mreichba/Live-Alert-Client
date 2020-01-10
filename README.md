@@ -9,8 +9,8 @@ This is a safety app with the ability to create and delete a user account, login
 ![Sign-up Page](src/Images/Sign-up.PNG)
 ![Login Page](src/Images/Login.PNG)
 ![Home Page](src/Images/Home.PNG)
-![MyAlerts Page](src/Images/MyAlerts.PNG)
-![Contacts Page](src/Images/Contacts.PNG)
+![MyAlerts Page](src/Images/MyAlerts.png)
+![Contacts Page](src/Images/Contacts.png)
 ![Delete Page](src/Images/Delete.PNG)
 ## Technology Used
 React 
