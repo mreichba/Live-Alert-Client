@@ -2,9 +2,7 @@ import React from 'react';
 import './MyAlerts.css';
 import AuthHelper from '../../services/auth-api-service';
 import Logo from '../../Images/signal-tower-large.png'
-
 const moment = require('moment');
-
 
 export default class MyAlerts extends React.Component {
   constructor(props) {
@@ -36,13 +34,11 @@ export default class MyAlerts extends React.Component {
   markSafe = (id) => {
     AuthHelper.editAlert(false, id)
       .then(this.getAlerts)
-    console.log(id)
   }
 
   render() {
     const myAlerts = this.state.myAlerts.map((myAlert, idx) => (
       <p key={idx}>
-        {/* <span className='bold'>  User: </span>{myAlert.nick_name} */}
         <span className='bold'>  Alert Time: </span>{moment(myAlert.alert_time).format("dddd, MMMM Do YYYY, h:mm:ss a")}
         <span className='bold'>  Longitude: </span>{myAlert.longitude}
         <span className='bold'>  Latitude: </span>{myAlert.latitude}
@@ -50,14 +46,10 @@ export default class MyAlerts extends React.Component {
         <button className='isSafe' onClick={() => this.markSafe(myAlert.id)} >Mark Safe</button>
       </p>
     ))
-    console.log(myAlerts)
-    console.log()
     return (
       <div>
         <img id="Landing-Logo" src={Logo} alt="Live Alert Logo" className="logo" />
-
-
-        <h3>My Alerts</h3>
+        <h2>My Alerts</h2>
         <div className='myAlerts'>{myAlerts}</div>
         <button onClick={this.onGoBack}>Go Back</button>
       </div >

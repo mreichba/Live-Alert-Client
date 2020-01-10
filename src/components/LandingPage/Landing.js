@@ -22,7 +22,7 @@ export default class Landing extends React.Component {
           </Link>
         </div>
 
-        <h2>Mission Statement:</h2>
+        <h2 className="slogan">"Making your safety a priority!"</h2>
         <p className='mission'>
           The world is filled with so much good and our lives may hold many adventures. At the same time, these adventures
           can take a turn for the worse and expose us to dangerous situations in which we may fear for our lives. In these
@@ -32,6 +32,9 @@ export default class Landing extends React.Component {
           and a safeword. If contacted and no one answers or does answer but does not repeat the safeword, then
           contacts should relay the situation to authorities and they will be on their way to your location.
         </p>
+        <p className='mission'>To get started, click 'Create Account' and fill out the necessary information. Once account is created, log in
+          and add contacts by email to follow their alert status. Tap the alert button on the homepage when you feel you are in an emergency situation and
+          Mark yourself safe in the 'My Alerts' tab once you are safe.</p>
       </div >
     )
   }

@@ -28,7 +28,8 @@ const AuthHelper = {
     return fetch(`${config.API_ENDPOINT}/users`, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${TokenServices.getAuthToken()}`
+        Authorization: `Bearer ${TokenServices.getAuthToken()}`,
+        'content-type': 'application/json'
       },
       body: JSON.stringify({ email: email.value, password: password.value })
     });

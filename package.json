@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "REACT_APP_API_BASE_URL=https://murmuring-refuge-36938.herokuapp.com/api npm run build",
     "deploy": "now ./build",
     "postdeploy": "now alias -A ./build/now.json"
   },

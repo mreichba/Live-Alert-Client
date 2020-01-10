@@ -28,8 +28,6 @@ export default class Home extends React.Component {
   }
 
   sendAlert = () => {
-    console.log('you sent an alert!')
-
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition);
     } else {
@@ -62,15 +60,13 @@ export default class Home extends React.Component {
         <span className='bold'>  Emergency: </span>{alert.alert_active ? <span className='redAlert'>"Emergency"</span> : <span className='greenAlert'>"Safe"</span>}
       </p>
     ))
-    console.log(alerts)
-    console.log(this.props)
     return (
       <div>
         <img id="Landing-Logo" src={Logo} alt="Live Alert Logo" className="logo" />
         <button className="alertButton" onClick={this.sendAlert}>Send Alert!</button>
 
         <div className='alertsHome'>
-          <h3>User Alerts</h3>
+          <h2>User Alerts</h2>
           <div className='userAlerts'>{alerts}</div>
 
         </div>

@@ -24,7 +24,6 @@ export default class Contacts extends React.Component {
       .catch((error) => {
         this.setState({ error })
       })
-    console.log(this.state)
   }
 
   onCancel = () => {
@@ -40,12 +39,10 @@ export default class Contacts extends React.Component {
     AuthHelper.addContact(email.value)
       .then(res => res.json())
       .then((res) => {
-        console.log(res.error)
         if (res.error) {
           this.setState({ error: res.error.message })
         } else {
           email.value = '';
-          alert('New contact Added!');
         }
       })
       .then(() => {
@@ -60,7 +57,6 @@ export default class Contacts extends React.Component {
         <span className='bold'>  Email: </span>{contact.email}
       </li>
     ))
-    console.log(contacts)
     return (
       <div>
         <img id="Landing-Logo" src={Logo} alt="Live Alert Logo" className="logo" />
@@ -71,7 +67,7 @@ export default class Contacts extends React.Component {
         <h2>Add Contact</h2>
         <form onSubmit={this.addContact}>
           <label htmlFor="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required />
+          <input type="text" placeholder="Enter Email" id="email" name="email" required />
 
           <div className='error'>{this.state.error || ''}</div>
           <button type="submit" className="login button">Add Contact</button>

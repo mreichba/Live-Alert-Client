@@ -18,12 +18,9 @@ export default class Login extends React.Component {
   state = { error: null };
 
   onLoginSuccess = () => {
-    console.log('login successful!');
     const { location, history } = this.props;
-    console.log(this.props);
     const destination = (location.state || {}).from || '/users/home';
     history.push(destination);
-    console.log(destination);
   };
 
   loginSubmit = e => {
@@ -49,21 +46,21 @@ export default class Login extends React.Component {
 
     return (
       <div className='Login'>
-        <header>
-          <h2 className="appName">Sign-In</h2>
-        </header>
+
+        <h2 className="appName">Sign-In</h2>
+
         <form className='Login-Form' onSubmit={this.loginSubmit}>
           <label htmlFor="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required />
+          <input type="text" placeholder="Enter Email" id="email" name="email" required />
 
           <label htmlFor="password"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" required />
+          <input type="password" placeholder="Enter Password" id="password" name="password" required />
 
           <button type="submit" className="login button">Login</button>
         </form>
 
         <footer>
-          <Link to='/forgot-password'>Forgot Username/Password</Link><br />
+          {/* <Link to='/forgot-password'>Forgot Username/Password</Link><br /> */}
           <Link to='/auth/sign-up'>Create An Account</Link>
         </footer>
       </div>

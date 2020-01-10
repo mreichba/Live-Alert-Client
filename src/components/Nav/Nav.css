@@ -1,6 +1,6 @@
 
 nav {
-  padding: 1% 0;
+ 
   background-color: rgb(39,64,175);
 }
 .navBar {
@@ -12,6 +12,15 @@ nav {
   right: 0;
   z-index: 10;
   padding: 5px;
+  
+ 
+}
+.loginRegister{
+  display: inline;
+  justify-content: center;
+  justify-self: center;
+  max-height: 30px;
+  background-color: rgb(39,64,175);
 }
 .navContents {
   display: inline-block;
@@ -21,6 +30,7 @@ nav {
   right: 0;
   z-index: 10;
   padding: 5px;
+  background-color: rgb(39,64,175);
 }
 .user {
   display: inline;
@@ -63,6 +73,19 @@ nav {
   font-size: 20px;
   padding: 0px;
 }
+.loginLinks {
+  display: flex;
+  flex-direction: row;
+  
+  justify-content: space-around;
+  
+  margin: 5px;
+ 
+  overflow: hidden;
+  font-size: 20px;
+  padding: 0px;
+  
+}
 .null{
   display: none;
 }
@@ -78,7 +101,7 @@ li a {
 }
 
 /*tablet screen*/
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 620px) {
   .links {
     display: flex;
     flex-direction: row;
@@ -88,6 +111,13 @@ li a {
     padding: 0;
     align-self: center;
     
+  }
+  
+  .loginRegister{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+   
   }
   .navContents {
     display: flex;
