@@ -62,7 +62,6 @@ export default class Login extends React.Component {
         </form>
 
         <footer>
-          {/* <Link to='/forgot-password'>Forgot Username/Password</Link><br /> */}
           <Link to='/auth/sign-up'>Create An Account</Link>
         </footer>
       </div>
