@@ -1,5 +1,5 @@
 import config from '../config'
-
+//functions used for authtokens
 const TokenServices = {
   saveAuthToken(token) {
     window.localStorage.setItem(config.TOKEN_KEY, token)

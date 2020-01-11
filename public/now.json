@@ -4,8 +4,7 @@
   "name": "live-alert-app",
   "routes": [
     {
-      "src": "^/static/(.*)",
-      "dest": "/static/$1"
+      "handle": "filesystem"
     },
     {
       "src": ".*",

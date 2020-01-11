@@ -17,7 +17,7 @@ export default class Nav extends React.Component {
   }
   static contextType = Context;
 
-
+  //activates mobile menu
   burgerClick = () => {
     let links = document.getElementById('links');
     if (links.className === 'links') {
@@ -31,13 +31,13 @@ export default class Nav extends React.Component {
     const { history } = this.props;
     history.push('/auth/login')
   }
-
+  //removes token from local storage and clears state and context
   signOut = (event) => {
     TokenServices.clearAuthToken();
     this.context.emptyAuth();
     this.setState({ nick_name: '' });
   }
-
+  //nav links when auth token is provided
   renderHomeLinks() {
     return (
       <div className='navContents'>
@@ -52,7 +52,7 @@ export default class Nav extends React.Component {
       </div>
     )
   }
-
+  //nav links when no auth token
   renderLoginLinks() {
     return (
       <div className='navContents'>
@@ -73,9 +73,8 @@ export default class Nav extends React.Component {
       </div>
     )
   }
+  //returns nav bar based on auth token
   render() {
-
-
     return (
       <div>
         <nav className="navBar">

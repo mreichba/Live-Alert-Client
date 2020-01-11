@@ -13,11 +13,11 @@ export default class Home extends React.Component {
       alerts: [],
     };
   }
-
+  //gets all the users contact alerts on mount
   componentDidMount() {
     this.getUserAlerts();
   }
-
+  //gets all the users contact alerts and sets state with them
   getUserAlerts = () => {
     AuthHelper.getMyContactAlerts()
       .then(res => res.json())
@@ -26,7 +26,7 @@ export default class Home extends React.Component {
         this.setState({ error })
       })
   }
-
+  //checks for geolocation availability and gets Latitude and Longitude coordinates
   sendAlert = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition);
@@ -34,7 +34,7 @@ export default class Home extends React.Component {
       alert("Geolocation is not supported by this browser.");
     }
   }
-
+  //sends alert info in POST request to /alerts router, then fetches that alert and sets state
   showPosition = (position) => {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
@@ -48,7 +48,7 @@ export default class Home extends React.Component {
         this.setState({ error })
       })
   }
-
+  //renders contact alerts and returns them
   render() {
     const alerts = this.state.alerts.map((alert, idx) => (
       <p key={idx}>

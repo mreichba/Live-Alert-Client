@@ -32,12 +32,12 @@ class App extends React.Component {
   }
 
   render() {
-    const value = {
+    const value = {//sets up context
       authToken: this.state.authToken,
       emptyAuth: this.emptyAuth,
       setAuth: this.setAuth,
     };
-
+    //provides context to all components of app, sets up switch router, public routes, and private routes
     return (
       <Context.Provider value={value}>
         <div className='App'>

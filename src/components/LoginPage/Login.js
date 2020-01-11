@@ -27,10 +27,12 @@ export default class Login extends React.Component {
     e.preventDefault();
     this.setState({ error: null });
     const { email, password } = e.target;
+    //sends POST request to auth router (/auth/login)
     AuthHelper.login({
       email: email.value,
       password: password.value
     })
+      //clears inputs and sets auth token in context and local storage
       .then(res => {
         email.value = '';
         password.value = '';

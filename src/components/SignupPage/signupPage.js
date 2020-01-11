@@ -11,11 +11,10 @@ export default class Signup extends Component {
     const { history } = this.props;
     history.push('/auth/login')
   }
-
+  //sends POST request of new user info to /auth/sign-up
   newAccountSubmit = ev => {
     ev.preventDefault()
     const { nick_name, email, password, passwordRepeat, safeword, safewordRepeat } = ev.target
-
     this.setState({ error: null });
     AuthHelper.createAccount({
       nick_name: nick_name.value,
@@ -23,6 +22,7 @@ export default class Signup extends Component {
       password: password.value,
       safeword: safeword.value
     })
+      //clears input values
       .then(user => {
         nick_name.value = '';
         email.value = '';
@@ -36,7 +36,7 @@ export default class Signup extends Component {
         this.setState({ error: res.error })
       });
   };
-
+  //returns signup form
   render() {
     return (
       <div>

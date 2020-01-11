@@ -11,7 +11,7 @@ export default class Nickname extends React.Component {
       nick_name: '',
     };
   }
-
+  //GET request to /users/home and sets state with user nick_name on mount
   componentDidMount() {
     if (TokenServices.hasAuthToken()) {
       AuthHelper.getMyNickname()
@@ -19,6 +19,8 @@ export default class Nickname extends React.Component {
         .then(res => this.setState({ nick_name: res.nick_name }))
     }
   }
+
+  //shows signed in user as a link to home page
   render() {
     return (
       <div className='userNickname'>

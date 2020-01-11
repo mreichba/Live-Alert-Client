@@ -1,6 +1,6 @@
 import config from '../config';
 import TokenServices from '../services/token-services';
-
+//helper functions for fetch request
 const AuthHelper = {
   createAccount(newAccount) {
     return fetch(`${config.API_ENDPOINT}/auth/sign-up`, {

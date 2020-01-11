@@ -12,11 +12,11 @@ export default class MyAlerts extends React.Component {
       myAlerts: [],
     };
   }
-
+  //gets current users alerts on mount
   componentDidMount() {
     this.getAlerts();
   }
-
+  //gets current users alerts and sets state with them
   getAlerts = () => {
     AuthHelper.getMyAlerts()
       .then(res => res.json())
@@ -30,12 +30,12 @@ export default class MyAlerts extends React.Component {
     const { history } = this.props;
     history.push('/users/home')
   }
-
+  //PATCH request to /alerts/:alert_id that marks current user as 'safe'
   markSafe = (id) => {
     AuthHelper.editAlert(false, id)
       .then(this.getAlerts)
   }
-
+  //renders user alerts and returns them
   render() {
     const myAlerts = this.state.myAlerts.map((myAlert, idx) => (
       <p key={idx}>
