@@ -43,7 +43,7 @@ export default class Nav extends React.Component {
       <div className='navContents'>
         {TokenServices.hasAuthToken() && <Nickname />}
         <div role="navigation" className="burgerIcon" id="burger" onClick={this.burgerClick}> &#9776; </div>
-        <ul aria-live="polite" className="links" id="links" onClick={this.burgerClick}>
+        <ul aria-live="polite" className="links null" id="links" onClick={this.burgerClick}>
           <li><Link onClick={this.signOut} to='/auth/login' >Log Out</Link></li>
           <li><Link to='/delete-account'>Delete Account</Link></li>
           <li><Link to='/contacts'>Contacts</Link></li>
