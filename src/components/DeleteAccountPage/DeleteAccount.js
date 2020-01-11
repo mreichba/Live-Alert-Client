@@ -18,11 +18,11 @@ export default class DeleteAccount extends React.Component {
     const { history } = this.props;
     history.push('/')
   }
-
+  //deletes user account
   deleteAccount = (event) => {
     event.preventDefault();
     const { email, password } = event.target
-    //add error handler to verify account was deleted
+    //DELETE request to /users router, clears auth, and resets state
     AuthHelper.deleteAccount(email, password)
       .then(() => {
         email.value = '';
@@ -32,7 +32,7 @@ export default class DeleteAccount extends React.Component {
         this.onDeleteSuccess();
       })
   }
-
+  //returns a form to enter email/password to delete account
   render() {
     return (
       <div>

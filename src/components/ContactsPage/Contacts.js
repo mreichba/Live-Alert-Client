@@ -11,12 +11,11 @@ export default class Contacts extends React.Component {
       contacts: [],
     };
   }
-
+  //gets contacts on mount
   componentDidMount() {
     this.getContacts();
-
   }
-
+  //gets contacts and sets the state with them
   getContacts = () => {
     AuthHelper.getMyContacts()
       .then(res => res.json())
@@ -30,12 +29,12 @@ export default class Contacts extends React.Component {
     const { history } = this.props;
     history.push('/users/home')
   }
-
+  //adds contact with email
   addContact = (event) => {
     event.preventDefault();
     const { email } = event.target;
-
     this.setState({ error: null })
+    //sends post request to contacts
     AuthHelper.addContact(email.value)
       .then(res => res.json())
       .then((res) => {
@@ -49,7 +48,7 @@ export default class Contacts extends React.Component {
         this.getContacts();
       })
   }
-
+  //renders contacts nick_name and email and returns them on the contacts page
   render() {
     const contacts = this.state.contacts.map((contact, idx) => (
       <li className='contact' key={idx}>
