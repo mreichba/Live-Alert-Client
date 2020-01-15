@@ -41,4 +41,8 @@ p {
   margin-bottom: 40px;
 }
 
+.userAlerts {
+  margin: 50px;
+  display: inline-block;
+}
 
