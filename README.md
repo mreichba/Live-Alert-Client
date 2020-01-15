@@ -1,4 +1,5 @@
 ## Live-Alert App (Client)
+![Live Alert Logo](src/Images/signal-tower-large.png)
 Link: https://live-alert.now.sh/
 
 ## Summary

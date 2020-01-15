@@ -66,7 +66,7 @@ export default class Home extends React.Component {
         <button className="alertButton" onClick={this.sendAlert}>Send Alert!</button>
 
         <div className='alertsHome'>
-          <h2>User Alerts</h2>
+          <h2>Alerts Received</h2>
           <div className='userAlerts'>{alerts}</div>
 
         </div>

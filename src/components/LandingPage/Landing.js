@@ -34,7 +34,11 @@ export default class Landing extends React.Component {
         </p>
         <p className='mission'>To get started, click 'Create Account' and fill out the necessary information. Once account is created, log in
           and add contacts by email to follow their alert status. Tap the alert button on the homepage when you feel you are in an emergency situation and
-          Mark yourself safe in the 'My Alerts' tab once you are safe.</p>
+          Mark yourself safe in the 'My Alerts' tab once you are safe.
+        </p>
+        <p className='mission'>To test out this app use these sign-in's (email: mason@test.com, password: Password1!) . Once signed in try adding
+          contact, (email: test@test.com, password: Password1!) . try switching between users, sending alerts, and adding each other as contacts.
+        </p>
       </div >
     )
   }
