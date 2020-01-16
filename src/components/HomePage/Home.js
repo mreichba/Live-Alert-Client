@@ -3,7 +3,6 @@ import './Home.css';
 import AuthHelper from '../../services/auth-api-service';
 import Logo from '../../Images/signal-tower-large.png'
 const moment = require('moment');
-let now = moment();
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -39,7 +38,7 @@ export default class Home extends React.Component {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     const alert_active = true;
-    const alert_time = now.format();
+    const alert_time = moment().format();
     AuthHelper.addAlert(alert_time, longitude, latitude, alert_active)
       .then(() => {
         this.getUserAlerts();
