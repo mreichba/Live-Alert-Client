@@ -6,7 +6,11 @@ header {
   margin-top: 70px;
   font-family: 'Righteous', cursive; 
   font-size: 40px;
+  /* color: rgb(39,64,175); */
 }
+ header span {
+   color: red;
+ }
 
 .logo {
   width: 200px;

@@ -18,7 +18,7 @@ export default class Signup extends Component {
     this.setState({ error: null });
     AuthHelper.createAccount({
       nick_name: nick_name.value,
-      email: email.value,
+      email: email.value.toLowerCase(),
       password: password.value,
       safeword: safeword.value
     })
@@ -66,6 +66,7 @@ export default class Signup extends Component {
 
             <label htmlFor="safewordRepeat"><b>Repeat Safeword</b></label>
             <input type="text" placeholder="Repeat Safeword" id="safewordRepeat" name="safewordRepeat" required />
+            <div className='error'>{this.state.error || ''}</div>
             <hr />
 
             <p>By creating an account you agree to our <Link to='/terms'>Terms & Privacy</Link>.</p>
