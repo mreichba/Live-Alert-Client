@@ -29,7 +29,7 @@ export default class Login extends React.Component {
     const { email, password } = e.target;
     //sends POST request to auth router (/auth/login)
     AuthHelper.login({
-      email: email.value,
+      email: email.value.toLowerCase(),
       password: password.value
     })
       //clears inputs and sets auth token in context and local storage
@@ -57,6 +57,8 @@ export default class Login extends React.Component {
 
           <label htmlFor="password"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" id="password" name="password" required />
+
+          <div className='error'>{this.state.error || ''}</div>
 
           <button type="submit" className="login button">Login</button>
         </form>

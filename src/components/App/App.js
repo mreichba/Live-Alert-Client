@@ -44,7 +44,7 @@ class App extends React.Component {
           <Nav />
 
           <header>
-            <h1>Live Alert</h1>
+            <h1>Live <span>Alert</span></h1>
           </header>
 
           <main>
