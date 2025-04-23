@@ -32,6 +32,10 @@ This is a safety app with the ability to create and delete a user account, login
 ## Technology Used
 React 
 
+## Local Development Setup:
+- Node: v16.20.2 (use `nvm use`)
+- React Scripts: 3.4.4
+
 ## Available Scripts
 
 In the project directory, you can run:
