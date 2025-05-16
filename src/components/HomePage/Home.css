@@ -11,6 +11,11 @@
   height: 60px;
   font-size: 40px;
   border-radius: 8px;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.alertButton.greenTransition {
+  background-color: green;
 }
 
 .redAlert {
@@ -42,7 +47,7 @@ p {
 }
 
 .userAlerts {
-  margin: 50px;
+  margin: 0px 50px 50px;
   display: inline-block;
 }
 
