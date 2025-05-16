@@ -15,18 +15,18 @@
     "react-scripts": "^3.4.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
     "prebuild": "set CI=true react-scripts test --colors",
-    "build": "react-scripts build",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "REACT_APP_API_BASE_URL=https://murmuring-refuge-36938.herokuapp.com/api npm run build",
-    "deploy": "now ./build",
-    "postdeploy": "now alias -A ./build/now.json"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "engines": {
+    "node": "18.x"
+},
   "browserslist": {
     "production": [
       ">0.2%",
