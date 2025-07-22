@@ -17,6 +17,7 @@ export default class Login extends React.Component {
 
   state = { error: null };
 
+  // after login, redirect user to their previous location (or fallback to home)
   onLoginSuccess = () => {
     const { location, history } = this.props;
     const destination = (location.state || {}).from || '/users/home';
@@ -26,29 +27,34 @@ export default class Login extends React.Component {
   loginSubmit = e => {
     e.preventDefault();
     this.setState({ error: null });
+
     const { email, password } = e.target;
-    //sends POST request to auth router (/auth/login)
+
+    //sends POST request to /auth/login
     AuthHelper.login({
       email: email.value.toLowerCase(),
       password: password.value
     })
-      //clears inputs and sets auth token in context and local storage
       .then(res => {
+        // clear inputs
         email.value = '';
         password.value = '';
+
+        // set auth token in both localStorage and context
         TokenServices.saveAuthToken(res.authToken);
         this.context.setAuth(res.authToken);
+
+        // redirect to intended destination
         this.onLoginSuccess();
       })
       .catch(res => {
         this.setState({ error: res.error });
       });
   };
+  
   render() {
-
     return (
       <div className='Login'>
-
         <h2 className="appName">Sign-In</h2>
 
         <form className='Login-Form' onSubmit={this.loginSubmit}>
@@ -58,7 +64,7 @@ export default class Login extends React.Component {
           <label htmlFor="password"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" id="password" name="password" required />
 
-          <div className='error'>{this.state.error || ''}</div>
+          {this.state.error && <div className='error'>{this.state.error}</div>}
 
           <button type="submit" className="login button">Login</button>
         </form>

@@ -15,24 +15,19 @@ export default class Nav extends React.Component {
       nick_name: '',
     };
   }
+
   static contextType = Context;
 
   //activates mobile menu
   burgerClick = () => {
-    let links = document.getElementById('links');
-    if (links.className === 'links') {
-      links.className += ' null';
-    } else {
-      links.className = 'links';
+  const links = document.getElementById('links');
+    if (links) {
+      links.classList.toggle('null');
     }
-  }
+  };
 
-  onLogOutSuccess = () => {
-    const { history } = this.props;
-    history.push('/auth/login')
-  }
   //removes token from local storage and clears state and context
-  signOut = (event) => {
+  signOut = () => {
     TokenServices.clearAuthToken();
     this.context.emptyAuth();
     this.setState({ nick_name: '' });
@@ -41,48 +36,50 @@ export default class Nav extends React.Component {
   renderHomeLinks() {
     return (
       <div className='navContents'>
-        {TokenServices.hasAuthToken() && <Nickname />}
-        <div role="navigation" className="burgerIcon" id="burger" onClick={this.burgerClick}> &#9776; </div>
-        <ul aria-live="polite" className="links null" id="links" onClick={this.burgerClick}>
+        <Nickname />
+        <div 
+          role="navigation" 
+          className="burgerIcon" 
+          id="burger" 
+          onClick={this.burgerClick}
+        > 
+          &#9776; 
+        </div>
+        <ul 
+          aria-live="polite" 
+          className="links null" 
+          id="links" 
+          onClick={this.burgerClick}
+        >
           <li><Link to='/contacts'>Contacts</Link></li>
           <li><Link to='/alerts'>My Alerts</Link></li>
           <li><Link to='/delete-account'>Settings</Link></li>
           <li><Link onClick={this.signOut} to='/auth/login' >Log Out</Link></li>
         </ul>
       </div>
-    )
+    );
   }
+
   //nav links when no auth token
   renderLoginLinks() {
     return (
       <div className='navContents'>
         <ul aria-live="polite" className="loginLinks" id="loginLinks">
-          <li className=''>
-            <Link
-              to='/auth/sign-up'>
-              Register
-              </Link>
-          </li>
-          <li >
-            <Link
-              to='/auth/login'>
-              Login
-              </Link>
-          </li>
+          <li><Link to='/auth/sign-up'>Register</Link></li>
+          <li><Link to='/auth/login'>Login</Link></li>
         </ul>
       </div>
     )
   }
   //returns nav bar based on auth token
   render() {
+    const isAuthenticated = TokenServices.hasAuthToken();
     return (
-      <div>
-        <nav className="navBar">
-          {TokenServices.hasAuthToken()
-            ? this.renderHomeLinks()
-            : this.renderLoginLinks()}
-        </nav>
-      </div>
+      <nav className="navBar">
+        {isAuthenticated
+          ? this.renderHomeLinks()
+          : this.renderLoginLinks()}
+      </nav>
     )
   }
 }

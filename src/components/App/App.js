@@ -32,14 +32,15 @@ class App extends React.Component {
   }
 
   render() {
-    const value = {//sets up context
+    //sets up context
+    const contextValue = {
       authToken: this.state.authToken,
       emptyAuth: this.emptyAuth,
       setAuth: this.setAuth,
     };
     //provides context to all components of app, sets up switch router, public routes, and private routes
     return (
-      <Context.Provider value={value}>
+      <Context.Provider value={contextValue}>
         <div className='App'>
           <Nav />
 
@@ -49,44 +50,14 @@ class App extends React.Component {
 
           <main>
             <Switch>
-              <PublicRoute
-                exact
-                path='/'
-                component={Landing}
-              />
-              <PublicRoute
-                exact
-                path='/auth/sign-up'
-                component={Signup}
-              />
-              <PublicRoute
-                exact
-                path='/auth/login'
-                component={Login}
-              />
-              <PrivateRoute
-                exact
-                path='/users/home'
-                component={Home}
-              />
-              <PrivateRoute
-                exact
-                path='/alerts'
-                component={MyAlerts}
-              />
-              <PrivateRoute
-                exact
-                path='/contacts'
-                component={Contacts}
-              />
-              <PrivateRoute
-                exact
-                path='/delete-account'
-                component={DeleteAccount}
-              />
-              <Route
-                component={NotFoundPage}
-              />
+              <PublicRoute exact path="/" component={Landing} />
+              <PublicRoute exact path="/auth/sign-up" component={Signup} />
+              <PublicRoute exact path="/auth/login" component={Login} />
+              <PrivateRoute exact path="/users/home" component={Home} />
+              <PrivateRoute exact path="/alerts" component={MyAlerts} />
+              <PrivateRoute exact path="/contacts" component={Contacts} />
+              <PrivateRoute exact path="/delete-account" component={DeleteAccount} />
+              <Route component={NotFoundPage} />
             </Switch>
           </main>
         </div>

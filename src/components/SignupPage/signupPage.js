@@ -4,48 +4,66 @@ import AuthHelper from '../../services/auth-api-service';
 import { Link } from 'react-router-dom'
 
 export default class Signup extends Component {
-
   state = { error: null }
 
+  // redirect user to login page after successful registration
   onRegistrationSuccess = user => {
     const { history } = this.props;
     history.push('/auth/login')
   }
+
   //sends POST request of new user info to /auth/sign-up
   newAccountSubmit = ev => {
-    ev.preventDefault()
-    const { nick_name, email, password, passwordRepeat, safeword, safewordRepeat } = ev.target
+    ev.preventDefault();
+
+    const { 
+      nick_name,
+      email,
+      password,
+      passwordRepeat,
+      safeword,
+      safewordRepeat 
+    } = ev.target
+
+    // check password and safeword match before sending request
+    if (password.value !== passwordRepeat.value) {
+      return this.setState({ error: "Passwords do not match." });
+    }
+    if (safeword.value !== safewordRepeat.value) {
+      return this.setState({ error: "Safewords do not match." });
+    }
+
     this.setState({ error: null });
+
     AuthHelper.createAccount({
       nick_name: nick_name.value,
       email: email.value.toLowerCase(),
       password: password.value,
       safeword: safeword.value
     })
-      //clears input values
-      .then(user => {
+      .then(() => {
+        //clears inputs
         nick_name.value = '';
         email.value = '';
         password.value = '';
         passwordRepeat.value = '';
-        safewordRepeat.value = '';
         safeword.value = '';
+        safewordRepeat.value = '';
+
         this.onRegistrationSuccess();
       })
       .catch(res => {
         this.setState({ error: res.error })
       });
   };
-  //returns signup form
+
   render() {
     return (
       <div>
         <h2>Create Account</h2>
 
-        <form className="sign-up"
-          onSubmit={this.newAccountSubmit}>
+        <form className="sign-up" onSubmit={this.newAccountSubmit}>
           <div className="container">
-
             <p>Please fill in this form to create an account.</p>
             <hr />
 
@@ -66,14 +84,16 @@ export default class Signup extends Component {
 
             <label htmlFor="safewordRepeat"><b>Repeat Safeword</b></label>
             <input type="text" placeholder="Repeat Safeword" id="safewordRepeat" name="safewordRepeat" required />
-            <div className='error'>{this.state.error || ''}</div>
+            
+            {this.state.error && <div className='error'>{this.state.error}</div>}
             <hr />
 
             <p>By creating an account you agree to our <Link to='/terms'>Terms & Privacy</Link>.</p>
+
             <div className="buttons">
               <button type="submit" className="register button">Register</button>
               <Link to='/'>
-                <button type="click" className="cancel">Cancel</button>
+                <button type="button" className="cancel">Cancel</button>
               </Link>
             </div>
           </div>

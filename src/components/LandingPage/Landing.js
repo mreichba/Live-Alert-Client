@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from '../../Images/signal-tower-large.png'
 import './Landing.css'
 
+// Public-facing landing page with intro and call-to-action
 export default class Landing extends React.Component {
   render() {
     return (
@@ -23,6 +24,7 @@ export default class Landing extends React.Component {
         </div>
 
         <h2 className="slogan">"Making your safety a priority!"</h2>
+
         <p className='mission'>
           The world is filled with so much good and our lives may hold many adventures. At the same time, these adventures
           can take a turn for the worse and expose us to dangerous situations in which we may fear for our lives. In these
@@ -32,17 +34,19 @@ export default class Landing extends React.Component {
           and a safeword. If contacted and no one answers or does answer but does not repeat the safeword, then
           contacts should relay the situation to authorities and they will be on their way to your location.
         </p>
+
         <p className='mission'>To get started, click 'Create Account' and fill out the necessary information. Once account is created, log in
           and add contacts by email to follow their alert status. Tap the alert button on the homepage when you feel you are in an emergency situation and
           Mark yourself safe in the 'My Alerts' tab once you are safe.
         </p>
-        <p className='mission'>To test out this app use these sign-in's:<br/> 
-          email: test@example.com, password: Password<br/> 
-          email: han@example.com, password: Password<br/>  
-          email: leia@example.com, password: Password<br/>  
+
+        <p className='mission'>To test out this app use these sign-in's:<br /> 
+          email: test@example.com, password: Password<br /> 
+          email: han@example.com, password: Password<br />  
+          email: leia@example.com, password: Password<br />  
           Try switching between users, sending alerts, and if you create your own account you can add these demo users as contacts.
         </p>
-      </div >
+      </div>
     )
   }
 }

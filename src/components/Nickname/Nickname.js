@@ -17,16 +17,24 @@ export default class Nickname extends React.Component {
       AuthHelper.getMyNickname()
         .then(res => res.json())
         .then(res => this.setState({ nick_name: res.nick_name }))
+        .catch(error => this.setState({ error }));
     }
   }
 
   //shows signed in user as a link to home page
   render() {
+    const { nick_name, error } = this.state;
+
     return (
       <div className='userNickname'>
-        <Link to='/users/home' className='user'>
-          <span className='nickname'>{this.state.nick_name}'s profile</span>
-        </Link>
+        {error && (
+          <span className="error">Error: {error.message || error.toString()}</span>
+        )}
+        {nick_name && (
+          <Link to='/users/home' className='user'>
+            <span className='nickname'>{nick_name}'s profile</span>
+          </Link>
+        )}
       </div>
 
     )

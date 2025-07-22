@@ -7,23 +7,25 @@ import './DeleteAccount.css'
 
 
 export default class DeleteAccount extends React.Component {
-
   static contextType = Context;
 
+  // navigates back to the user's home page
   onCancel = () => {
     const { history } = this.props;
     history.push('/users/home')
   }
 
-  onDeleteSuccess = user => {
+  // navigates to the landing page after account deletion
+  onDeleteSuccess = () => {
     const { history } = this.props;
     history.push('/')
   }
-  //deletes user account
+
+  // sends DELETE request to /users, clears context and auth, and redirects
   deleteAccount = (event) => {
     event.preventDefault();
     const { email, password } = event.target
-    //DELETE request to /users router, clears auth, and resets state
+
     AuthHelper.deleteAccount(email, password)
       .then(() => {
         email.value = '';
@@ -33,7 +35,8 @@ export default class DeleteAccount extends React.Component {
         this.onDeleteSuccess();
       })
   }
-  //returns a form to enter email/password to delete account
+
+  // renders delete account form
   render() {
     return (
       <div>
@@ -52,11 +55,10 @@ export default class DeleteAccount extends React.Component {
             <input type="password" placeholder="Enter Password" id="password" name="password" required />
 
             <button type="submit" className="delete button">Delete My Account</button>
-            <button type="click" className="cancel button" onClick={this.onCancel}>Cancel</button>
+            <button type="button" className="cancel button" onClick={this.onCancel}>Cancel</button>
           </form>
         </div>
       </div>
-
-    )
+    );
   }
 }
